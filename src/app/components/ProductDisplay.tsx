@@ -67,11 +67,7 @@ export default function ProductDisplay() {
             ref={(el) => {
               productRefs.current[index] = el;
             }}
-            className={`bg-white rounded-2xl shadow-lg overflow-hidden hover-lift group transition-all duration-300 ${
-              index === currentProductIndex
-                ? "ring-4 ring-amber-500 scale-105"
-                : ""
-            }`}
+            className="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift group transition-all duration-300 hover:ring-4 hover:ring-amber-500 hover:scale-105"
           >
             <div className="relative h-80 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center overflow-hidden">
               <img
