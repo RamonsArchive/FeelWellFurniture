@@ -1,4 +1,4 @@
-// FeelWellFurniature - Product Data Constants
+// FeelWellFurniture - Product Data Constants
 // This file contains all the product data extracted from the PDF
 
 export interface Product {
@@ -167,18 +167,18 @@ export const categories: Category[] = [
 ];
 
 export const companyInfo = {
-  name: 'FeelWellFurniature',
+  name: 'FeelWellFurniture',
   tagline: 'Where Comfort Meets Style',
   description: 'Premium furniture designed for modern living. We create beautiful, functional pieces that transform your space into a home.',
   contact: {
     phone: '+1 (555) 123-4567',
-    email: 'info@feelwellfurniature.com',
+    email: 'info@feelwellfurniture.com',
     address: '123 Furniture Street, Design City, DC 12345'
   },
   social: {
-    instagram: '@feelwellfurniature',
-    facebook: 'FeelWellFurniature',
-    pinterest: 'FeelWellFurniature'
+    instagram: '@feelwellfurniture',
+    facebook: 'FeelWellFurniture',
+    pinterest: 'FeelWellFurniture'
   }
 };
 
