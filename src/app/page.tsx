@@ -16,7 +16,7 @@ export default function Home() {
       {/* Hero Section */}
       <section
         id="hero"
-        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+        className="relative min-h-screen flex items-center justify-center overflow-hidden px-4"
       >
         <div className="absolute inset-0 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50"></div>
         <div
@@ -26,7 +26,7 @@ export default function Home() {
           }}
         ></div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 text-center">
           <div
             className={`transition-all duration-1000 ${
               isVisible
@@ -34,10 +34,10 @@ export default function Home() {
                 : "opacity-0 translate-y-10"
             }`}
           >
-            <h1 className="font-playfair text-5xl md:text-7xl font-bold text-gray-900 mb-6">
+            <h1 className="font-playfair text-4xl sm:text-5xl md:text-7xl font-bold text-gray-900 mb-6">
               {companyInfo.name}
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
               {companyInfo.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
