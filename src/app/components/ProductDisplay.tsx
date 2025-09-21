@@ -46,6 +46,7 @@ export default function ProductDisplay() {
     setSelectedProduct(null);
   };
 
+  console.log(JSON.stringify(realProducts));
   return (
     <div className="w-full">
       {/* Product Navigation */}
@@ -72,9 +73,19 @@ export default function ProductDisplay() {
                 : ""
             }`}
           >
-            <div className="relative h-80 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-              <div className="text-8xl opacity-20">🪑</div>
-              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300"></div>
+            <div className="relative h-80 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center overflow-hidden">
+              <img
+                src={product.image}
+                alt={product.name}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                onError={(e) => {
+                  // Fallback to placeholder if image fails to load
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = "none";
+                  const fallback = target.nextElementSibling as HTMLElement;
+                  if (fallback) fallback.style.display = "flex";
+                }}
+              />
               <div className="absolute top-4 right-4 bg-amber-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
                 {product.price}
               </div>
@@ -144,8 +155,24 @@ export default function ProductDisplay() {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {/* Product Image */}
                 <div className="space-y-4">
-                  <div className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl flex items-center justify-center">
-                    <div className="text-9xl opacity-20">🪑</div>
+                  <div className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl flex items-center justify-center overflow-hidden">
+                    <img
+                      src={selectedProduct.image}
+                      alt={selectedProduct.name}
+                      className="w-full h-full object-cover rounded-2xl"
+                      onError={(e) => {
+                        // Fallback to placeholder if image fails to load
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = "none";
+                        const fallback =
+                          target.nextElementSibling as HTMLElement;
+                        if (fallback) fallback.style.display = "flex";
+                      }}
+                    />
+                    {/* Fallback placeholder */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center hidden">
+                      <div className="text-9xl opacity-20">🪑</div>
+                    </div>
                   </div>
                   <div className="text-center">
                     <span className="text-3xl font-bold text-amber-600">
