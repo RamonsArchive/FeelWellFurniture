@@ -11,8 +11,75 @@ export default function Home() {
     setIsVisible(true);
   }, []);
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "FurnitureStore",
+    name: "FeelWellFurniture",
+    description:
+      "Premium furniture designed for modern living. We create beautiful, functional pieces that transform your space into a home.",
+    url: "https://feelwellfurniture.com",
+    logo: "https://feelwellfurniture.com/logo.svg",
+    image: "https://feelwellfurniture.com/logo.svg",
+    telephone: "+1 (555) 123-4567",
+    email: "info@feelwellfurniture.com",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "123 Furniture Street",
+      addressLocality: "Design City",
+      addressRegion: "DC",
+      postalCode: "12345",
+      addressCountry: "US",
+    },
+    openingHours: "Mo-Fr 09:00-18:00, Sa 10:00-16:00",
+    priceRange: "$$",
+    paymentAccepted: "Cash, Credit Card, PayPal",
+    currenciesAccepted: "USD",
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Furniture Catalog",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Product",
+            name: "Premium Beds",
+            description: "Luxury beds with premium materials",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Product",
+            name: "Modern Sofas",
+            description: "Comfortable and stylish sofas",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Product",
+            name: "Dining Furniture",
+            description: "Elegant dining room sets",
+          },
+        },
+      ],
+    },
+    sameAs: [
+      "https://www.instagram.com/feelwellfurniture",
+      "https://www.facebook.com/FeelWellFurniture",
+      "https://www.pinterest.com/FeelWellFurniture",
+    ],
+  };
+
   return (
     <div className="min-h-screen">
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
       {/* Hero Section */}
       <section
         id="hero"
