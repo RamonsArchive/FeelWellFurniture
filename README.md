@@ -20,7 +20,7 @@ FeelWellFurniture is a premium furniture store website that offers a curated col
 
 ### Frontend
 
-- **Next.js 14** - React framework with App Router
+- **Next.js 15** - React framework with App Router
 - **TypeScript** - Type-safe JavaScript
 - **Tailwind CSS** - Utility-first CSS framework
 - **React Hooks** - State management and side effects
