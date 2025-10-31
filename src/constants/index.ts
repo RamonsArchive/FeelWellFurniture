@@ -171,9 +171,9 @@ export const companyInfo = {
   tagline: 'Where Comfort Meets Style',
   description: 'Premium furniture designed for modern living. We create beautiful, functional pieces that transform your space into a home.',
   contact: {
-    phone: '+1 (555) 123-4567',
-    email: 'info@feelwellfurniture.com',
-    address: '123 Furniture Street, Design City, DC 12345'
+    phone: '949-910-7879',
+    email: 'clutchdev.apps@gmail.com',
+    address: '9500 Gilman Dr, La Jolla, CA 92093'
   },
   social: {
     instagram: '@feelwellfurniture',
@@ -382,8 +382,8 @@ export const realProducts: Product[] = [
   },
   {
     id: "P266",
-    name: "P266 Chair",
-    category: "Chairs",
+    name: "P266 Sofa",
+    category: "Sofas",
     description: "Premium leather chair with high-density foam and Russian larch frame",
     image: "/ProductImages/prod9.png",
     price: "$893",
@@ -400,8 +400,8 @@ export const realProducts: Product[] = [
   },
   {
     id: "P242",
-    name: "P242 Chair",
-    category: "Chairs",
+    name: "P242 Sofa",
+    category: "Sofas",
     description: "Luxury leather chair with dual foam system and Russian larch frame",
     image: "/ProductImages/prod10.png",
     price: "$861",
