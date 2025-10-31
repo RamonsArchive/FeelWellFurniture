@@ -5,6 +5,9 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { companyInfo } from "../../constants";
+import { sendContactEmail } from "@/lib/actions";
+import { parseServerActionResponse } from "@/lib/utils";
+import { ActionState } from "@/lib/GlobalTypes";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -31,21 +34,43 @@ export default function ContactPage() {
     resolver: zodResolver(contactSchema),
   });
 
-  const onSubmit = async (data: ContactFormData) => {
+  const onSubmit = async (data: ContactFormData): Promise<ActionState> => {
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
     try {
-      // TODO: Replace with server action
-      // await submitContactForm(data);
+      const result = await sendContactEmail(
+        data.name,
+        data.phone,
+        data.email,
+        data.subject,
+        data.message
+      );
 
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      if (result?.status === "ERROR") {
+        setSubmitStatus("error");
+        return parseServerActionResponse({
+          status: "ERROR",
+          error: result.error,
+          data: null,
+        });
+      }
 
       setSubmitStatus("success");
       reset();
+      return parseServerActionResponse({
+        status: "SUCCESS",
+        error: "",
+        data: null,
+      });
     } catch (error) {
-      setSubmitStatus("error");
+      console.error(error);
+      return parseServerActionResponse({
+        status: "ERROR",
+        error:
+          error instanceof Error ? error.message : "An unknown error occurred",
+        data: null,
+      });
     } finally {
       setIsSubmitting(false);
     }
