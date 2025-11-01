@@ -86,35 +86,37 @@ export default function Home() {
       />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4">
+      <section className="relative min-h-[70vh] sm:min-h-[80vh] md:min-h-screen flex items-center justify-center overflow-hidden px-4 py-16 sm:py-20 md:py-0">
         <div className="absolute inset-0 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50" />
         <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmNTllMGIiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iNCIvPjwvZz48L2c+PC9zdmc+')]" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div
             className={`transition-all duration-1000 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
             }`}
           >
-            <h1 className="font-playfair text-5xl sm:text-6xl md:text-8xl font-bold text-gray-900 mb-6">
+            <h1 className="font-playfair text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-gray-900 mb-4 sm:mb-6">
               {companyInfo.name}
             </h1>
-            <p className="text-xl sm:text-2xl md:text-3xl text-gray-600 mb-12 max-w-3xl mx-auto font-light">
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-600 mb-6 sm:mb-8 md:mb-12 max-w-3xl mx-auto font-light px-4">
               {companyInfo.tagline}
             </p>
-            <p className="text-lg md:text-xl text-gray-500 mb-12 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-500 mb-8 sm:mb-10 md:mb-12 max-w-2xl mx-auto px-4">
               {companyInfo.description}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
               <Link
                 href="/products"
-                className="bg-gradient-to-r from-amber-500 to-orange-600 text-white px-10 py-5 rounded-full text-lg font-semibold hover:from-amber-600 hover:to-orange-700 transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl"
+                className="bg-gradient-to-r from-amber-500 to-orange-600 text-white px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 rounded-full text-base sm:text-lg font-semibold hover:from-amber-600 hover:to-orange-700 transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl"
               >
                 Explore Collection
               </Link>
               <Link
                 href="/contact"
-                className="border-2 border-amber-500 text-amber-600 px-10 py-5 rounded-full text-lg font-semibold hover:bg-amber-500 hover:text-white transition-all duration-300"
+                className="border-2 border-amber-500 text-amber-600 px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 rounded-full text-base sm:text-lg font-semibold hover:bg-amber-500 hover:text-white transition-all duration-300"
               >
                 Get in Touch
               </Link>
@@ -227,58 +229,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center">
-            <div className="flex items-center justify-center space-x-2 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">F</span>
-              </div>
-              <span className="font-playfair text-3xl font-bold">
-                {companyInfo.name}
-              </span>
-            </div>
-            <p className="text-gray-400 mb-6 text-lg">{companyInfo.tagline}</p>
-            <div className="flex justify-center space-x-8 mb-8">
-              <a
-                href="#"
-                className="text-gray-400 hover:text-amber-500 transition-colors duration-200"
-              >
-                Instagram
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-amber-500 transition-colors duration-200"
-              >
-                Facebook
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-amber-500 transition-colors duration-200"
-              >
-                Pinterest
-              </a>
-            </div>
-            <div className="space-y-2 text-gray-400 mb-8">
-              <p>
-                <a href={`tel:${companyInfo.contact.phone}`} className="hover:text-amber-500">
-                  {companyInfo.contact.phone}
-                </a>
-              </p>
-              <p>
-                <a href={`mailto:${companyInfo.contact.email}`} className="hover:text-amber-500">
-                  {companyInfo.contact.email}
-                </a>
-              </p>
-            </div>
-            <p className="text-gray-500 text-sm">
-              © {new Date().getFullYear()} {companyInfo.name}. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
